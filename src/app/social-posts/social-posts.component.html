@@ -1,0 +1,10 @@
+<h1>Social Posts</h1>
+<button (click)="showForm()">New Post</button>
+<div *ngIf="show" class="form-container">
+  <app-post-form (submitted)="onSubmit($event)"></app-post-form>
+</div>
+<app-post
+  *ngFor="let post of listOfPosts; index as i"
+  [post]="post"
+  (deleted)="onDelete(i)"
+></app-post>
